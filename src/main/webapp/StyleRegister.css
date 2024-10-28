@@ -1,0 +1,80 @@
+@charset "UTF-8";
+/* Full-page setup */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+/* Video background settings */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+#bg-video {
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+}
+
+/* Centering the form */
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+form {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 350px;
+}
+
+/* Styling input fields */
+input[type="text"], 
+input[type="email"], 
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0 20px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* Button styling */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Add bold effect */
+b {
+    display: block;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,61 @@
+@charset "UTF-8";
+/* General page styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+h2 {
+    text-align: center;
+    margin: 20px 0 60px 0; /* Adjusted to create space between the heading and navbar */
+    font-size: 28px;
+    color: #333;
+}
+
+/* Navbar container */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #333;
+    padding: 14px;
+    width: 100%;
+    position: relative; /* Changed from fixed to relative to be below the heading */
+}
+
+/* Links for the left side of the navbar */
+.navbar .left-side a {
+    text-decoration: none;
+    color: white;
+    padding: 14px 20px;
+    display: inline-block;
+}
+
+/* Links for the right side of the navbar */
+.navbar .right-side a {
+    text-decoration: none;
+    color: white;
+    padding: 14px 20px;
+    display: inline-block;
+}
+
+/* Hover effect for navbar links */
+.navbar a:hover {
+    background-color: #575757;
+    color: white;
+}
+
+/* Layout for left and right side sections */
+.left-side {
+    display: flex;
+}
+
+.right-side {
+    display: flex;
+}
+
+/* Body content padding to prevent overlap */
+body {
+    padding: 20px; /* No top padding needed since the navbar is below the heading */
+}
