@@ -33,12 +33,13 @@
     h2 {
         text-align: center;
         color: white;
+        width:380px;
+        border-radius:40px;
         margin-top: 40px;
-        margin-left: 425px;
-        margin-right: 425px;
+        margin-left: 420px;
+        margin-right: 420px;
         font-size: 36px;
-        background-color:red;
-
+        background-color:black;
     }
 
    .admin-container {
@@ -53,7 +54,7 @@
 .admin-box {
     width: 160px;
     height: 160px;
-    background-color: darkgray; /* Light neutral background */
+    background-color: #d3d3d3; 
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     display: flex;
@@ -62,24 +63,24 @@
     flex-direction: column;
     text-align: center;
     transition: transform 0.2s;
-    color: #333; /* Dark text for better contrast */
+    color: #333; 
 }
 
 .admin-box a {
     display: block;
     padding: 10px;
-    background-color: #4F75FF; /* Vibrant orange button */
+    background-color: #4F75FF; 
     color: white;
     text-decoration: none;
     border-radius: 5px;
-    font-size: 18px;
+    font-size: 16px;
     width: 70%;
     text-align: center;
     transition: background-color 0.3s;
 }
 
 .admin-box a:hover {
-    background-color: red; /* Lighter shade of orange on hover */
+    background-color: red; 
 }
    
 </style>
@@ -88,7 +89,7 @@
 
  <div class="video-background">
         <video autoplay muted loop id="bg-video">
-            <source src="Seven_Seas_Hotel_Life__-_Drone_Video(360p).mp4" type="video/mp4">
+            <source src="Hotel Background Video.mp4" type="video/mp4">
         </video>
     </div>
 
@@ -116,8 +117,9 @@
     </div>
     
     <div class="admin-box">
-        <a href="CustomerDetails.jsp">Customer Details</a>
+        <a href="CustomerDetails.jsp">Customer Data</a>
     </div>
+    
     
 </div>
 

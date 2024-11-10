@@ -9,13 +9,11 @@ import UserModel.UserModel;
 
 public class UserDao {
 
-    // Get database connection
     public static Connection getConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         return DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbcproject", "root", "Dibya@143");
     }
 
-    // Register a new user in the database
     public boolean registerUser(UserModel user) throws SQLException, ClassNotFoundException {
         Connection con = null;
         PreparedStatement st = null;
@@ -23,10 +21,9 @@ public class UserDao {
 
         try {
             con = UserDao.getConnection();
-            con.setAutoCommit(false); // Disable auto-commit for transaction handling
-            
+            con.setAutoCommit(false); 
             String query = "INSERT INTO registration (firstname, lastname, phonenumber, email, age, gender, password, usertype) "
-                         + "VALUES (?, ?, ?, ?, ?, ?, ?, 'user')"; // Ensure 'usertype' is set as 'user'
+                         + "VALUES (?, ?, ?, ?, ?, ?, ?, 'user')"; 
             
             st = con.prepareStatement(query);
             st.setString(1, user.getFirstname());
@@ -40,15 +37,15 @@ public class UserDao {
             int result = st.executeUpdate();
             
             if (result > 0) {
-                con.commit();  // Commit the transaction if successful
-                flag = true;   // User registration successful
+                con.commit();  
+                flag = true;   
             } else {
-                con.rollback(); // Rollback if something goes wrong
+                con.rollback(); 
             }
             
         } catch (SQLException e) {
             if (con != null) {
-                con.rollback(); // Rollback in case of exception
+                con.rollback(); 
             }
             e.printStackTrace();
         } finally {
@@ -74,7 +71,7 @@ public class UserDao {
             st.setString(2, password);
 
             ResultSet rs = st.executeQuery();
-            isValidUser = rs.next(); // Check if a result is returned, indicating valid user credentials
+            isValidUser = rs.next(); 
 
         } finally {
             if (st != null) st.close();
@@ -85,7 +82,10 @@ public class UserDao {
     }
 
 	public boolean addAdmin(String email, String password) {
-		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean updateUser(UserModel user) {
 		return false;
 	}
 }

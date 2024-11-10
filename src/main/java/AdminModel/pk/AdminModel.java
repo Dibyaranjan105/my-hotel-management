@@ -6,9 +6,11 @@ public class AdminModel {
     public int getId() {
 		return id;
 	}
+    
 	public void setId(int id) {
 		this.id = id;
 	}
+	
 	public AdminModel(int id, String firstname, String lastname, String phonenumber, String email, String password,
 			String usertype) {
 		super();
@@ -20,10 +22,12 @@ public class AdminModel {
 		this.password = password;
 		this.usertype = usertype;
 	}
+	
 	public AdminModel() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 	public String getFirstname() {
 		return firstname;
 	}

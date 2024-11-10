@@ -9,13 +9,12 @@ import AdminModel.pk.AdminModel;
 
 public class AdminDao {
 
-    // Get database connection
     public static Connection getConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         return DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbcproject", "root", "Dibya@143");
     }
 
-    // Add Admin to the database
+    // Add Admin 
     public boolean addAdmin(AdminModel admin) {
         Connection con = null;
         PreparedStatement st = null;
@@ -23,7 +22,7 @@ public class AdminDao {
 
         try {
             con = AdminDao.getConnection();
-            con.setAutoCommit(false); // Disable auto-commit for transaction handling
+            con.setAutoCommit(false); 
 
             String query = "INSERT INTO registration (id, firstname, lastname, phonenumber, email, password, usertype) "
                          + "VALUES (?, ?, ?, ?, ?, ?, 'admin')";
@@ -36,20 +35,19 @@ public class AdminDao {
             st.setString(5, admin.getEmail());
             st.setString(6, admin.getPassword());
 
-            // Execute the query
             int result = st.executeUpdate();
 
             if (result > 0) {
-                con.commit();  // Commit the transaction if the update is successful
-                flag = true;   // Admin added successfully
+                con.commit(); 
+                flag = true;   
             } else {
-                con.rollback(); // Rollback the transaction if something goes wrong
+                con.rollback(); 
             }
 
         } catch (SQLException | ClassNotFoundException e) {
             try {
                 if (con != null) {
-                    con.rollback(); // Rollback in case of exception
+                    con.rollback(); 
                 }
             } catch (SQLException ex) {
                 ex.printStackTrace();
@@ -64,10 +62,10 @@ public class AdminDao {
             }
         }
 
-        return flag;  // Return the flag to indicate success or failure
+        return flag;  
     }
 
-    // Validate Admin login
+    // Check Admin Add or Not
     public boolean addAdmin(String email, String password) throws SQLException, ClassNotFoundException {
         Connection con = null;
         PreparedStatement st = null;
@@ -82,7 +80,7 @@ public class AdminDao {
             st.setString(2, password);
 
             ResultSet rs = st.executeQuery();
-            isValidAdmin = rs.next(); // Check if a result is returned, indicating valid admin credentials
+            isValidAdmin = rs.next(); 
 
         } finally {
             if (st != null) st.close();
@@ -90,11 +88,11 @@ public class AdminDao {
         }
 
         return isValidAdmin;
-    }
+    } 
     
- 
- // Delete Admin based on firstname, lastname, and email
-    public boolean deleteAdmin(String firstname, String lastname, String email) {
+
+    // Delete Admin 
+    public boolean deleteAdmin(String firstname, String lastname, String email, String password) {
         Connection con = null;
         PreparedStatement st = null;
         boolean isDeleted = false;
@@ -102,12 +100,12 @@ public class AdminDao {
         try {
             con = AdminDao.getConnection();
 
-            // Deleting the admin based on firstname, lastname, and email
-            String query = "DELETE FROM registration WHERE firstname = ? AND lastname = ? AND email = ? AND usertype = 'admin'";
+            String query = "DELETE FROM registration WHERE firstname = ? AND lastname = ? AND email = ? AND password = ? AND usertype = 'admin'";
             st = con.prepareStatement(query);
             st.setString(1, firstname);
             st.setString(2, lastname);
             st.setString(3, email);
+            st.setString(4, password);
 
             int result = st.executeUpdate();
 
@@ -129,7 +127,8 @@ public class AdminDao {
         return isDeleted;
     }
 
-// **Update Admin details**
+
+// Update Admin
     public boolean updateAdmin(AdminModel admin) {
         Connection con = null;
         PreparedStatement st = null;
@@ -164,5 +163,11 @@ public class AdminDao {
         return isUpdated;
     }
 }
+
+
+
+
+
+
 
 

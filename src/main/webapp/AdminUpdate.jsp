@@ -25,10 +25,10 @@
 }
     
 .form-container {
-    width: 28%;
+    width: 27%;
     margin: 50px auto;
     padding: 20px;
-    background-color: #f4f4f4;
+    background-color: transparent;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-family: 'Arial', sans-serif;
@@ -68,7 +68,7 @@ button[type="submit"] {
     background-color: #4CAF50;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 60px;
     font-size: 18px;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -98,7 +98,7 @@ button[type="submit"]:hover {
 
     <div class="video-background">
         <video autoplay muted loop id="bg-video">
-            <source src="Seven_Seas_Hotel_Life__-_Drone_Video(360p).mp4" type="video/mp4">
+            <source src="Hotel Background Video.mp4" type="video/mp4">
         </video>
     </div>
 
